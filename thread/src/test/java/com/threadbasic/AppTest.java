@@ -1,4 +1,4 @@
-package com.tread;
+package com.threadbasic;
 
 import static org.junit.Assert.assertTrue;
 
