@@ -2,7 +2,7 @@ package com.threadbasic;
 
 import javax.swing.JOptionPane;
 
-public class threadComRunnable {
+public class ThreadComRunnable {
 
     public static void main(String[] args) throws InterruptedException {
         /*

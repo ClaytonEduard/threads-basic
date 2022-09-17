@@ -2,7 +2,7 @@ package com.threadbasic;
 
 import javax.swing.JOptionPane;
 
-public class threadParalala {
+public class ThreadParalala {
 
     public static void main(String[] args) throws InterruptedException {
 

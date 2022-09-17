@@ -1,8 +1,7 @@
 package com.threadbasic;
-
 import javax.swing.JOptionPane;
 
-public class threadParalalaConcorrente {
+public class ThreadParalalaConcorrente {
 
     public static void main(String[] args) throws InterruptedException {
 
