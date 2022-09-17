@@ -5,5 +5,5 @@
 
 ** Exemplo de Thread como controle de botões Swing (Java para Descktop)
 
-https://user-images.githubusercontent.com/11823640/190870053-66acf106-f947-4692-809f-1432fdecfe1c.mp4
+https://user-images.githubusercontent.com/11823640/190870074-d0d67bb7-e953-442a-98cc-a77feb55adbe.mp4
 
