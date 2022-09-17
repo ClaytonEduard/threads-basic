@@ -5,5 +5,4 @@
 
 - Exemplo de Thread como controle de botões Swing (Java para Descktop)
 
-
-[Thread com Janela.webm](https://user-images.githubusercontent.com/11823640/190870164-3cd3f57c-c6ba-443a-9dc5-34413fdb0588.webm)
+![Thread com Janela (1)](https://user-images.githubusercontent.com/11823640/190870441-40a86806-42ff-48ba-97d4-69fdb8680ce4.gif)
