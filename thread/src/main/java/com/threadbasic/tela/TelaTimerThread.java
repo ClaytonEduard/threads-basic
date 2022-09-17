@@ -10,6 +10,10 @@ import javax.swing.plaf.InsetsUIResource;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.awt.BorderLayout;
 
 public class TelaTimerThread extends JDialog {
@@ -26,6 +30,47 @@ public class TelaTimerThread extends JDialog {
     private JButton jButton = new JButton("Start"); /* definindo botao start */
     private JButton jButton2 = new JButton("Stop"); /* definindo botao start */
 
+    /* Funcao runnable para iserir a hora atual no label */
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            while (true) {
+                mostraTempo
+                        .setText(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(Calendar.getInstance().getTime()));
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+
+    };
+    private Thread thread1Time;
+
+    /*----------------------------------------------------------------------------- */
+    /* Funcao runnable para iserir a hora atual no label */
+    private Runnable runnable2 = new Runnable() {
+        @Override
+        public void run() {
+            while (true) {
+                mostraTempo2
+                        .setText(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(Calendar.getInstance().getTime()));
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+
+    };
+
+    private Thread thread2Time;
+
+    /*----------------------------------------------------------------------------- */
     /*
      * inciando construtor
      * Excecuta o que tiver dentro no momento da abertura ou execução
@@ -46,8 +91,7 @@ public class TelaTimerThread extends JDialog {
         constraints.gridy = 0; /* coluna 0 */
         constraints.gridwidth = 2; /* Largura da celula de ocupacao */
         constraints.insets = new InsetsUIResource(5, 10, 5, 5); /* espaços entre os objetos */
-        constraints.anchor = GridBagConstraints.WEST; /* alinhar objetos a esquerta  */
-
+        constraints.anchor = GridBagConstraints.WEST; /* alinhar objetos a esquerta */
 
         descricaoHora.setPreferredSize(new DimensionUIResource(200, 25)); /* definindo o tamanho da label */
         panel.add(descricaoHora, constraints); /* incluido no painel */
@@ -68,7 +112,7 @@ public class TelaTimerThread extends JDialog {
         panel.add(mostraTempo2, constraints); /* incluido no painel */
 
         /*------------------------------------------------------------------------------------ */
-        
+
         constraints.gridwidth = 1; /* Largura volta a ser uma celula de ocupacao */
 
         /* definindo tamanho dos botões */
@@ -79,6 +123,41 @@ public class TelaTimerThread extends JDialog {
         jButton2.setPreferredSize(new DimensionUIResource(92, 25));
         constraints.gridx++;
         panel.add(jButton2, constraints);
+
+        /* executa o clique do botao1 */
+        jButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                thread1Time = new Thread(runnable);
+                thread1Time.start();
+
+                thread2Time = new Thread(runnable2);
+                thread2Time.start();
+
+                /* desabilitando o botao stop quando inicia a tela */
+                jButton2.setEnabled(true);
+                jButton.setEnabled(false);
+            }
+
+        });
+
+        /* executa o clique do botao2 */
+        jButton2.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                thread1Time.stop();
+                thread2Time.stop();
+                jButton.setEnabled(true);
+                jButton2.setEnabled(false);
+            }
+
+        });
+
+        /* desabilitando o botao stop quando inicia a tela */
+        jButton2.setEnabled(false);
 
         add(panel, BorderLayout.WEST); /* posicionar a esquerda */
         // add(panel, BorderLayout.CENTER); /* posicionar a esquerda */
