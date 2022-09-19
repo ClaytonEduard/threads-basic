@@ -9,5 +9,8 @@
   
 * Utilizando Fila e Pilha com Threads
     
-  ![image](https://user-images.githubusercontent.com/11823640/190871111-8155346f-1000-4cc3-98c4-81e746baab22.png)
+  ![image](https://user-images.githubusercontent.com/11823640/191013501-449fb1d6-028f-4564-8391-57ff971efd12.png)
 
+ - exemplo onde são adicionados emails para estar sendo enviados na retaguarda.
+ 
+ ![Video_1663577802](https://user-images.githubusercontent.com/11823640/191013674-be817179-c987-4f7c-b1f6-671cfcfce355.gif)
